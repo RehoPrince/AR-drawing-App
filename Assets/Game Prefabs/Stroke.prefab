@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3821385243199350358}
   - component: {fileID: 465853716}
+  - component: {fileID: -4571157161069817798}
   m_Layer: 0
   m_Name: Stroke
   m_TagString: Untagged
@@ -76,7 +77,7 @@ TrailRenderer:
   m_Time: Infinity
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.013
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -127,6 +128,18 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.001
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-4571157161069817798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7911189239596138417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140cad9bbb3f829429dd6d655e8eda84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
