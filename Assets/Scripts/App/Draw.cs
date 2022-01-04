@@ -10,12 +10,14 @@ using UnityEngine;
 public class Draw : MonoBehaviour
 {
     public GameObject spacePenPoint;
+    public GameObject surfacePenPoint;
     public GameObject stroke;
     public bool mouseLookTesting;
     public static bool drawing = false;
     private float pitch = 0;
     private float yaw = 0;
 
+    #region MonoBehaviour Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +27,19 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lookWithMouse();
+        LookWithMouse();
+        PenModeSelect();
+
     }
 
+
+    #endregion
+    #region Stroke Functions
     /// <summary>
     /// Mouse can be used to look around the scene
     /// if mouseLookTesting == true
     /// </summary>
-    private void lookWithMouse()
+    private void LookWithMouse()
     {
         if (mouseLookTesting)
         {
@@ -45,12 +52,32 @@ public class Draw : MonoBehaviour
     public void StartStroke()
     {
         drawing = true;
-        GameObject currentStroke = Instantiate(stroke, spacePenPoint.transform.position, spacePenPoint.transform.rotation);
+        GameObject currentStroke = (GameObject)Instantiate(stroke, spacePenPoint.transform.position, spacePenPoint.transform.rotation);
     }
 
     public void EndStroke()
     {
         drawing = false;
     }
+
+    /// <summary>
+    /// Determines the Pen Point to use based on current Drawing Mode
+    /// </summary>
+    public void PenModeSelect()
+    {
+        if (PenPointController.surfaceDrawingMode)
+        {
+            surfacePenPoint.SetActive(true);
+            spacePenPoint.SetActive(false);
+        }
+        else
+        {
+            surfacePenPoint.SetActive(false);
+            spacePenPoint.SetActive(true);
+
+        }
+    }
+
+    #endregion
 
 }
