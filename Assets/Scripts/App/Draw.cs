@@ -12,6 +12,7 @@ public class Draw : MonoBehaviour
     public GameObject spacePenPoint;
     public GameObject surfacePenPoint;
     public GameObject stroke;
+
     public bool mouseLookTesting;
     public static bool drawing = false;
     private float pitch = 0;
@@ -21,7 +22,7 @@ public class Draw : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -69,12 +70,13 @@ public class Draw : MonoBehaviour
         {
             surfacePenPoint.SetActive(true);
             spacePenPoint.SetActive(false);
+            // Debug.LogError("Surface drawing has not been setup yet!");
         }
         else
         {
             surfacePenPoint.SetActive(false);
             spacePenPoint.SetActive(true);
-
+            // Debug.Log("Drawing in 3D space now");
         }
     }
 
