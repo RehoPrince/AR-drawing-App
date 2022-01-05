@@ -11,40 +11,37 @@ public class Stroke : MonoBehaviour
     /*TODO: 
             - connect pen point so that it matches the size of our paint stroke
             instead of controlling through the editor (Pt. 2 of directions)
-            - TBD
+            - find alt solution to getting pen point variable
     */
 
-    private GameObject surfacePenPoint;
-    private GameObject spacePenPoint;
+    private Transform penPoint; //calling in the pen point from the Draw script
 
     // Start is called before the first frame update
     void Start()
     {
-        surfacePenPoint = GameObject.FindGameObjectWithTag("SurfacePenPoint");
-        spacePenPoint = GameObject.FindGameObjectWithTag("SpacePenPoint");
+        penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
 
     }
     // Update is called once per frame
     void Update()
     {
-        if (!Draw.drawing) return;
+        // if (!Draw.drawing) return;
 
-        if (PenPointController.surfaceDrawingMode)
-        {
-            enableSurfaceStroke();
-        }
-        else
-        {
-            enableSpaceStroke();
-        }
-    }
+        // if (PenPointController.surfaceDrawingMode)
+        // {
+        //     enableSurfaceStroke();
+        // }
+        // else
+        // {
+        //     enableSpaceStroke();
+        // }
 
-    private void enableSurfaceStroke()
-    {
+        penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
+        
         if (Draw.drawing)
         {
-            this.transform.position = surfacePenPoint.transform.position;
-            this.transform.rotation = surfacePenPoint.transform.rotation;
+            this.transform.position = penPoint.transform.position;
+            this.transform.rotation = penPoint.transform.rotation;
         }
         else
         {
@@ -52,18 +49,31 @@ public class Stroke : MonoBehaviour
         }
     }
 
-    private void enableSpaceStroke()
-    {
-        if (Draw.drawing)
-        {
-            this.transform.position = spacePenPoint.transform.position;
-            this.transform.rotation = spacePenPoint.transform.rotation;
-        }
-        else
-        {
-            this.enabled = false;
-        }
-    }
+    // private void enableSurfaceStroke()
+    // {
+    //     if (Draw.drawing)
+    //     {
+    //         this.transform.position = surfacePenPoint.transform.position;
+    //         this.transform.rotation = surfacePenPoint.transform.rotation;
+    //     }
+    //     else
+    //     {
+    //         this.enabled = false;
+    //     }
+    // }
+
+    // private void enableSpaceStroke()
+    // {
+    //     if (Draw.drawing)
+    //     {
+    //         this.transform.position = spacePenPoint.transform.position;
+    //         this.transform.rotation = spacePenPoint.transform.rotation;
+    //     }
+    //     else
+    //     {
+    //         this.enabled = false;
+    //     }
+    // }
 
 
 }

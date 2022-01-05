@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 140816876}
   - component: {fileID: 140816875}
   - component: {fileID: 140816878}
+  - component: {fileID: 140816879}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -365,6 +366,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PointCloudPrefab: {fileID: 4007643208876898884, guid: 353e1d20bde6a084ba9d2c1d609c621c,
     type: 3}
+--- !u!114 &140816879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140816874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 0}
 --- !u!1 &172015791
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,9 +574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003a7f48ab2fa294cbee6b48e0307dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surfaceToDetect: 15
   spacePenPoint: {fileID: 228065854}
   surfacePenPoint: {fileID: 1890531091}
   stroke: {fileID: 7911189239596138417, guid: e18751ec4774cef4085efcea6d24e509, type: 3}
+  penPoint: {fileID: 0}
   mouseLookTesting: 0
 --- !u!1 &228065854
 GameObject:
@@ -935,10 +951,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -946,9 +962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Space
-
-    Draw'
+  m_Text: Draw in Space
 --- !u!222 &749322162
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1016,10 +1030,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1027,7 +1041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Surface Draw
+  m_Text: Drawn on Surface
 --- !u!222 &753827463
 CanvasRenderer:
   m_ObjectHideFlags: 0
