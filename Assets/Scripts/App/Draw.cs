@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -17,26 +18,39 @@ public class Draw : MonoBehaviour
             - TBD
     */
 
+    [Header("Trackable Type Vars")]
+    [Space(5)]
     public TrackableType surfaceToDetect;
-    private ARRaycastManager arOrigin;
 
+    [Header("Pens and Stroke Vars")]
+    [Space(10)]
     public GameObject spacePenPoint;
     public GameObject surfacePenPoint;
     public GameObject stroke;
-    public static bool drawing = false;
+
+    [Header("Color Sliders Vars")]
+    [Space(5)]
+    public Slider[] colorSliders;
 
     [HideInInspector]
     public Transform penPoint;
 
+    [Header("Draw State Vars")]
+    [Space(5)]
+    public static bool drawing = false;
     public bool mouseLookTesting;
+
     private float pitch = 0;
     private float yaw = 0;
+
+    private ARRaycastManager arOrigin;
 
     #region MonoBehaviour Functions
     // Start is called before the first frame update
     void Start()
     {
-        arOrigin = FindObjectOfType<ARRaycastManager>();
+        //arOrigin = FindObjectOfType<ARRaycastManager>();
+        arOrigin = gameObject.GetComponentInParent<ARRaycastManager>();
     }
 
     // Update is called once per frame
@@ -114,6 +128,7 @@ public class Draw : MonoBehaviour
 
         gameObject.transform.position = validHits[0].pose.position;
         gameObject.transform.rotation = validHits[0].pose.rotation;
+        
     }
 
     #endregion

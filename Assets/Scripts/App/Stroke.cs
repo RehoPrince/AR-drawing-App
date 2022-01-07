@@ -14,18 +14,25 @@ public class Stroke : MonoBehaviour
             - find alt solution to getting pen point variable
     */
 
+
+    public Color strokeColor;
+
     private Transform penPoint; //calling in the pen point from the Draw script
+
+    private Renderer strokeRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
+        strokeRenderer = GetComponent<Renderer>();
 
     }
     // Update is called once per frame
     void Update()
     {
-        // if (!Draw.drawing) return;
+        if (!Draw.drawing) return; //Guardian code against update loop
 
         // if (PenPointController.surfaceDrawingMode)
         // {
@@ -37,6 +44,8 @@ public class Stroke : MonoBehaviour
         // }
 
         penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
+        strokeRenderer.material.color = strokeColor;
+        //GetComponent<Renderer>().material.color = strokeColor;
         
         if (Draw.drawing)
         {
