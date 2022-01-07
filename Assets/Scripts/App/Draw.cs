@@ -108,18 +108,24 @@ public class Draw : MonoBehaviour
     {
         if (PenPointController.surfaceDrawingMode)
         {
-            penPoint = surfacePenPoint.transform;
+            
 
             surfacePenPoint.SetActive(true);
             spacePenPoint.SetActive(false);
+
+            penPoint = surfacePenPoint.transform;
+            penPoint.GetComponent<Renderer>().material.color = colorFromUI;
             // Debug.LogError("Surface drawing has not been setup yet!");
         }
         else
         {
-            penPoint = spacePenPoint.transform;
+            
 
             surfacePenPoint.SetActive(false);
             spacePenPoint.SetActive(true);
+
+            penPoint = spacePenPoint.transform;
+            penPoint.GetComponent<Renderer>().material.color = colorFromUI;
             // Debug.Log("Drawing in 3D space now");
         }
     }
