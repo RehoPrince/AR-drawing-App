@@ -732,6 +732,7 @@ MonoBehaviour:
   - {fileID: 542795290}
   - {fileID: 1107295640}
   - {fileID: 573183281}
+  spectrumIntensity: 10
   penPoint: {fileID: 0}
   mouseLookTesting: 0
 --- !u!1 &228065854
@@ -1718,7 +1719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79, y: -246.00002}
+  m_AnchoredPosition: {x: -71, y: -260}
   m_SizeDelta: {x: 78.44214, y: 31.43082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791850609
@@ -2466,7 +2467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71, y: -246}
+  m_AnchoredPosition: {x: -71, y: -219}
   m_SizeDelta: {x: 78.44214, y: 31.43082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758846730

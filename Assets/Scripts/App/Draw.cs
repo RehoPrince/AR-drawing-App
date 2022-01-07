@@ -23,14 +23,21 @@ public class Draw : MonoBehaviour
     public TrackableType surfaceToDetect;
 
     [Header("Pens and Stroke Vars")]
-    [Space(10)]
+    [Space(5)]
     public GameObject spacePenPoint;
     public GameObject surfacePenPoint;
     public GameObject stroke;
 
-    [Header("Color Sliders Vars")]
+    [Header("Surface to Track")]
     [Space(5)]
-    public Slider[] colorSliders;
+    public Slider[] colorSliders; //Should be 3 or 4 in RGB or RGBA format in Order
+
+    [Header("Color Spectrum Var")]
+    [Space(10)]
+    [Range(1, 255)]
+    [Tooltip("This values determines how many color combinations would be available. " +
+        "The higher the number the wider the spectrum")]
+    public int spectrumIntensity = 10;
 
     [HideInInspector]
     public Transform penPoint;
@@ -44,6 +51,8 @@ public class Draw : MonoBehaviour
     private float yaw = 0;
 
     private ARRaycastManager arOrigin;
+
+    private Color colorFromUI;
 
     #region MonoBehaviour Functions
     // Start is called before the first frame update
@@ -81,8 +90,10 @@ public class Draw : MonoBehaviour
 
     public void StartStroke()
     {
+        ColorFromUI();
         drawing = true;
         GameObject currentStroke = Instantiate(stroke, penPoint.transform.position, penPoint.transform.rotation);
+        currentStroke.GetComponent<Stroke>().strokeColor = colorFromUI;
     }
 
     public void EndStroke()
@@ -111,6 +122,15 @@ public class Draw : MonoBehaviour
             spacePenPoint.SetActive(true);
             // Debug.Log("Drawing in 3D space now");
         }
+    }
+
+
+    /// <summary>
+    /// Convert values from slider UI to Color (RGB)
+    /// </summary>
+    private void ColorFromUI()
+    {
+        colorFromUI = new Color(colorSliders[0].value * spectrumIntensity, colorSliders[1].value * spectrumIntensity, colorSliders[2].value * spectrumIntensity);
     }
 
     /*Explanation from tutorial:
