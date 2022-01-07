@@ -28,24 +28,24 @@ public class Draw : MonoBehaviour
     public GameObject surfacePenPoint;
     public GameObject stroke;
 
-    [Header("Surface to Track")]
+    [Header("Color Sliders Vars")]
     [Space(5)]
     public Slider[] colorSliders; //Should be 3 or 4 in RGB or RGBA format in Order
 
     [Header("Color Spectrum Var")]
-    [Space(10)]
+    [Space(5)]
     [Range(1, 255)]
     [Tooltip("This values determines how many color combinations would be available. " +
         "The higher the number the wider the spectrum")]
-    public int spectrumIntensity = 10;
+    public int spectrumIntensity = 10;    
+
+    [Header("Draw State Vars")]
+    [Space(5)]    
+    public bool mouseLookTesting;
+    public static bool drawing = false;
 
     [HideInInspector]
     public Transform penPoint;
-
-    [Header("Draw State Vars")]
-    [Space(5)]
-    public static bool drawing = false;
-    public bool mouseLookTesting;
 
     private float pitch = 0;
     private float yaw = 0;
