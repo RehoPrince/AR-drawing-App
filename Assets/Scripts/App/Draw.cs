@@ -18,6 +18,7 @@ public class Draw : MonoBehaviour
             - TBD
     */
 
+    #region Variable Declaration
     [Header("Trackable Type Vars")]
     [Space(5)]
     public TrackableType surfaceToDetect;
@@ -45,7 +46,7 @@ public class Draw : MonoBehaviour
     public static bool drawing = false;
 
     [HideInInspector]
-    public Transform penPoint;
+    public static Transform penPoint;
 
     private float pitch = 0;
     private float yaw = 0;
@@ -53,6 +54,8 @@ public class Draw : MonoBehaviour
     private ARRaycastManager arOrigin;
 
     private Color colorFromUI;
+
+    #endregion
 
     #region MonoBehaviour Functions
     // Start is called before the first frame update
@@ -150,7 +153,7 @@ public class Draw : MonoBehaviour
     */
     private void RaycastDetection()
     {
-        Vector3 centerPoint = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
+        Vector3 centerPoint = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
 
         List<ARRaycastHit> validHits = new List<ARRaycastHit>();
         arOrigin.Raycast(centerPoint, validHits, surfaceToDetect);

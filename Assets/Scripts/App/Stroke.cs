@@ -19,14 +19,14 @@ public class Stroke : MonoBehaviour
 
     private Transform penPoint; //calling in the pen point from the Draw script
 
-    //private Renderer strokeRenderer; // --- Cmt-1
+    private Renderer strokeRenderer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
-        //strokeRenderer = GetComponent<Renderer>(); // --- Cmt-2
+        penPoint = Draw.penPoint;
+        strokeRenderer = GetComponent<Renderer>();
 
     }
     // Update is called once per frame
@@ -43,10 +43,10 @@ public class Stroke : MonoBehaviour
         //     enableSpaceStroke();
         // }
 
-        penPoint = GameObject.FindObjectOfType<Draw>().penPoint;
+        penPoint = Draw.penPoint;
 
-        GetComponent<Renderer>().material.color = strokeColor;
-        //strokeRenderer.material.color = strokeColor; //uncomment cmt-1 and cmt-2 to use. Less compute intensive
+        //GetComponent<Renderer>().material.color = strokeColor;
+        strokeRenderer.material.color = strokeColor; //Less compute intensive
 
 
         if (Draw.drawing)
