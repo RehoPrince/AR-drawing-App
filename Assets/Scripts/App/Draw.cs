@@ -65,6 +65,7 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ColorFromUI();
         LookWithMouse();
         PenModeSelect();
         RaycastDetection();
@@ -106,6 +107,8 @@ public class Draw : MonoBehaviour
     /// </summary>
     public void PenModeSelect()
     {
+        
+
         if (PenPointController.surfaceDrawingMode)
         {
             
