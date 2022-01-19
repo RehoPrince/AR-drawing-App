@@ -35,10 +35,10 @@ public class Draw : MonoBehaviour
 
     [Header("Color Spectrum Var")]
     [Space(5)]
-    [Range(1, 255)]
+    [Range(1,15)]
     [Tooltip("This values determines how many color combinations would be available. " +
-        "The higher the number the wider the spectrum")]
-    public int spectrumIntensity = 10;    
+        "The lower the number the wider the spectrum")]
+    public int spectrumIntensity = 1;    
 
     [Header("Draw State Vars")]
     [Space(5)]    

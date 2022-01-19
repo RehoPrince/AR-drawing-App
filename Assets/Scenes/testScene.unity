@@ -733,7 +733,6 @@ MonoBehaviour:
   - {fileID: 1107295640}
   - {fileID: 573183281}
   spectrumIntensity: 10
-  penPoint: {fileID: 0}
   mouseLookTesting: 0
 --- !u!1 &228065854
 GameObject:
@@ -2582,7 +2581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1890531092
 Transform:
   m_ObjectHideFlags: 0
